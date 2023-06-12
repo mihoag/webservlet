@@ -1,0 +1,25 @@
+package DB;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import com.mysql.cj.jdbc.Driver;
+public class ConnectionMySQL {  
+	private static Connection c  = null;
+	public static Connection getConnection()
+	{
+		try {
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+			String url = "jdbc:mySQL://Localhost:3306/quanlihs";
+			String user = "root";
+			String pass = "leminhhoang";
+			
+			c = DriverManager.getConnection(url, user, pass);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
+}
